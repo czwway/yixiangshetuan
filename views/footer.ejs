@@ -1,0 +1,36 @@
+<div id="footer"> 
+Copyright &copy; 2016-2017&nbsp;&nbsp;&nbsp;
+<strong><a href="index.html">意想社团</a></strong>
+&nbsp;&nbsp;&nbsp; All Rights Reserved. 备案号：粤ICP备66666666号-1
+<br>
+友情链接：<a href="http://www.sise.com.cn">华软首页</a>
+&nbsp;&nbsp;&nbsp;<a href="http://home.sise.cn">华软导航页</a>
+&nbsp;&nbsp;&nbsp;<a href="http://class.sise.com.cn:7001/sise/login.jsp">mysise系统</a>
+&nbsp;&nbsp;&nbsp;<a href="http://ca.sise.com.cn">计算机协会</a>
+</div>
+
+
+<script src="/javascripts/jquery.min.js"></script> 
+<script src="/javascripts/jquery.cookie.js"></script> 
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/angular.min.js"></script>
+<!-- 模拟数据 -->
+<!-- <script src="http://mockjs.com/dist/mock.js"></script> -->
+<!-- <script src="/javascripts/date.js"></script> -->
+<!-- 模板数据控制器 -->
+<script src="/javascripts/myangular.js"></script>
+<script>
+	$('#alert').css("display","block");
+	$('#logoutbtn').click(function(){
+		var msg = "您真的确定要注销登录吗？"; 
+		if (confirm(msg)==true){ 
+			$.cookie('userid',0,{ expires: -7});
+			$.cookie('user_img',0,{ expires: -7});
+			$.cookie('groupid',0,{ expires: -7});
+			window.location.href="/";
+		}else{ 
+			return false; 
+		} 
+		
+	});
+</script>

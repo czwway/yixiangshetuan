@@ -1,0 +1,76 @@
+<%- include header %>
+
+<%- include nav %>
+
+ 
+<div class="oinfo container" ng-controller="organization"  id="o_department">
+	<div id="path">
+		<ul class="breadcrumb">
+			<li>当前位置：</li>
+			<li> <a href="/organizations">社团</a></li>
+			<li class="active">{{info[0].org_name}}</li>
+		</ul>
+	</div>
+	<div class="describe">
+		<img src="../image/pic.jpg" width="50" height="30"/><span>协会概况</span>
+	</div>
+	<div class="row">
+		<div class="col-sm-7 icon">
+			<img ng-src="{{info[0].org_icon}}" />
+		</div>
+		<div class="col-sm-5 odescribe">
+			<h2><strong>{{info[0].org_name}}</h2>
+			<p>成立时间：{{info[0].org_time}}<span class="separate"></span>
+			现有人数：{{info[0].org_numper}}<span class="separate"></span>
+			所属系别：{{info[0].org_major}}
+			</strong></p>
+			<p><strong>社团介绍：</strong>{{info[0].org_synopsis}}</p>
+		</div>
+		<div style="display:block">
+			<button class="btn btn-info" style="margin:20px auto;display:block;" id="join" ng-click="join()">加入社团</button>
+		</div>
+		
+		
+	</div>
+	<!-- <div class="describe">
+		<img src="../image/pic.jpg" width="50" height="30"/><span>分属部门</span>
+	</div>
+	<div class="department">
+			<div class="departmentbox" ng-repeat="de in department">
+				<div class="departmenthead">{{de.dep_name}}</div>
+				<div class="departmentbody"><a ng-href="/userdetail/{{de_user.user_id}}" ng-repeat="de_user in de.dep_user">{{de_user.user_name}}</a></div>
+			</div>
+			<div ng-show="o_err" class="alert alert-danger">{{o_err}}</div>
+	</div> -->
+	<div class="describe">
+		<img src="../image/pic.jpg" width="50" height="30"/><span>举办活动</span>
+	</div>
+	<div class="aclist" id="o_activity">
+		<div class="row">
+				<div class="col-sm-6" ng-repeat="ac in activity" on-finish-render-filters>
+					<div class="activitybox">
+						<img src="{{ac.act_poster}}" alt="{{ac.act_name}}">
+						<div class="activityinfo">
+							<p><strong><a href="/activity/{{ac.act_id}}">{{ac.act_name}}</a></strong></p>
+							<p>开始时间：{{ac.act_starttime}}</p>
+							<p>结束时间：<span class="endtime">{{ac.act_endtime}}</span></p>
+							<button class="btn btn-sm sign">结束</button>
+						</div>
+						<p style="clear:both"></p>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div ng-show="a_err" class="alert alert-danger">{{a_err}}</div>
+</div>
+
+
+
+
+<%- include footer %>
+<script>
+	var userid = $.cookie("userid");
+	if(!userid){$('#join').html('登录后方可加入社团！').attr("disabled","disabled");}
+</script>
+</body>
+</html>

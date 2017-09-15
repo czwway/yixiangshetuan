@@ -1,0 +1,73 @@
+<%- include header %>
+<%- include nav %>
+<div class="loginbg">
+	<h2>意想社团管理系统-登录/注册</h2>
+	<div class="loginbox">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#tologin" aria-controls="tologin" role="tab" data-toggle="tab">登录</a></li>
+			<li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">注册</a></li>
+		</ul>
+		<div class="tab-content" >
+			<div role="tabpanel" class="tab-pane active" id="tologin" ng-controller="login">
+				<div class="form-horizontal">
+					<div style="height:60px;">
+					<div class="alert alert-danger" role="alert" ng-show="isShow"><span ng-bind="danger"></span></div></div>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-3 control-label">用户名</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="inputEmail3" placeholder="用户名" ng-model="user.name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+				    <div class="col-sm-9">
+				      <input type="password" class="form-control" id="inputPassword3" placeholder="密码" ng-model="user.password">
+				    </div>
+				  </div>
+  
+				  <div class="form-group">
+				    <div class="col-sm-offset-3 ">
+				      <button class="btn btn-info" style="margin-right:40px;" ng-click="login()">登录</button><button class="btn btn-info"  ng-click="reset()">重置</button>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="register" ng-controller="register">
+				<div class="form-horizontal">
+					<div style="height:60px;">
+					<div class="alert alert-danger" role="alert" ng-show="isShow"><span ng-bind="danger"></span></div></div>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-3 control-label">用户名</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="inputEmail3" placeholder="用户名" ng-model="user.name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+				    <div class="col-sm-9">
+				      <input type="password" class="form-control" id="inputPassword3" placeholder="密码" ng-model="user.password">
+				    </div>
+				  </div>
+  					<div class="form-group">
+				    <label for="inputPassword3" class="col-sm-3 control-label">确认密码</label>
+				    <div class="col-sm-9">
+				      <input type="password" class="form-control" id="inputPassword3" placeholder="密码" ng-model="user.rpassword">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-5 ">
+				      <button class="btn btn-info" style="margin-right:40px;" ng-click="login()">开始注册</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+
+
+
+
+<%- include footer %>
+
+</body>
+</html>

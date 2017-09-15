@@ -1,0 +1,65 @@
+<%- include header %>
+
+<%- include nav %>
+<div class="container userdetail" ng-controller="userdetail">
+	<h1>个人信息</h1>
+	<div id="userinfo">
+		<div class="row">
+			<div class="col-sm-4">
+				<img class="userimg" ng-src="{{userinfo.inform[0].user_img}}" alt="{{userinfo.inform[0].user_name}}" />
+			</div>
+			<div class="col-sm-8">
+				<ul class="list-group">
+					<li class="list-group-item">用户名：{{userinfo.inform[0].user_name}}</li>
+					<li class="list-group-item">性别：{{userinfo.inform[0].user_sex}}</li>
+					<li class="list-group-item">年级：{{userinfo.inform[0].user_grade}}</li>
+					<li class="list-group-item">真实姓名：{{userinfo.inform[0].user_truename}}</li>
+					<li class="list-group-item">专业：{{userinfo.inform[0].user_major}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 box">
+				<h2>加入社团<span class="badge">{{userinfo.org.length}}</span></h2>
+				<table class="table table-hover table-striped">
+					<thead><td>社团名称</td></thead>
+					<tbody>
+						<tr ng-repeat="o in userinfo.org">
+							<td><a ng-href="/organization/{{o.org_id}}">{{o.org_name}}</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-6 box">
+				<h2>参与活动<span class="badge">{{userinfo.act.length}}</span></h2>
+				<table class="table table-hover table-striped">
+					<thead><td>活动名称</td></thead>
+					<tbody>
+						<tr ng-repeat="a in userinfo.act">
+							<td><a ng-href="/activity/{{a.act_id}}">{{a.act_name}}</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 box">
+				<h2>发表日记<span class="badge">{{userinfo.diary.length}}</span></h2>
+				<table class="table table-hover table-striped">
+					<thead><td>日记标题</td><td>发表时间</td></thead>
+					<tbody>
+						<tr ng-repeat="d in userinfo.diary">
+							<td><a ng-href="/diary/{{d.dia_id}}">{{d.dia_title}}</a></td>
+							<td>{{d.dia_time}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include footer %>
+
+</body>
+</html>

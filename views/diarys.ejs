@@ -1,0 +1,37 @@
+<%- include header %>
+
+<%- include nav %>
+<div class="container" ng-controller="diarys" style="min-height: 550px;">
+		<div class="describe">
+			<img src="../image/pic.jpg" width="50" height="30"/><span>社团活动日记集</span>
+		</div>
+		<div class="search form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"></label>
+    		<div class="col-sm-8">
+      			<input type="text" class="form-control" id="inputEmail3" placeholder="按日记标题搜索"  ng-model="keyname">
+      		</div>
+		</div>
+		<div class="row">
+			<table class="table table-striped">
+				<thead>
+					<td ng-click="title = 'dia_title'; desc = !desc">日记标题</td>
+					<td ng-click="title = 'dia_author'; desc = !desc">日记作者</td>
+					<td ng-click="title = 'dia_about'; desc = !desc">日记关于</td>
+					<td ng-click="title = 'dia_time'; desc = !desc">日记时间</td>
+				</thead>
+				<tbody id="o_tbody">
+					<tr ng-repeat="diary in diarys | filter : {dia_title:keyname} | orderBy: title : desc">
+						<td><a ng-href="/diary/{{diary.dia_id}}">{{diary.dia_title}}</a></td>
+						<td>{{diary.dia_author}}</td>
+						<td>{{diary.dia_about}}</td>
+						<td>{{diary.dia_time}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<%- include footer %>
+<!-- 导航条当前选项选中 -->
+<script>$("#nav4").addClass("actived");</script>
+</body>
+</html>

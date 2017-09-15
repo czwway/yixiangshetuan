@@ -1,0 +1,82 @@
+<%- include header %>
+
+<%- include nav %>
+<div ng-controller="activityComment">
+	<div id="path">
+		<ul class="breadcrumb">
+			<li>当前位置：</li>
+			<li> <a href="/activitys">活动</a></li>
+			<li class="active">{{info[0].act_name}}</li>
+		</ul>
+	</div>
+	<div class="container">
+		<div class="activeinfo">
+			<img ng-src="{{info[0].act_poster}}" alt="{{info[0].act_name}}" class=""/>
+			<div class="ainfo">
+				<h2>{{info[0].act_name}}</h2>
+				<span>主办单位：{{info[0].act_sponsor}}</span>
+				<span>举办时间：{{info[0].act_starttime}}  TO  <span id="endtime">{{info[0].act_endtime}}</span></span>
+				<div class="synopsis">{{info[0].act_abstract}}</div>
+			</div>
+			<button class="btn btn-info" style="margin:20px auto;display:block;" id="join" ng-click="join()">报名参加</button>
+			<p><small>温馨提示：报名前请确保个人信息完整。报名后请留意信息通知</small></p>
+		</div>
+	</div>
+	<!-- 评论区 -->
+	<!-- 评论区 -->
+<div id="comment" class="conteiner">
+	<h3>评论区</h3>
+	<div class="no" ng-show="isShow">暂无评论！抢板凳？</div>
+	<div class="comment-box" ng-repeat="comment in Comments">
+		<span class="commentimg"><img ng-src="{{comment.user_img}}" /></span>
+		<span class="commentinfo">
+			<span class="commentauthor"><a ng-href="/userdetail/{{comment.user_id}}"><span ng-bind="comment.user_name"></span></a></span>
+			<span class="commentime"><span ng-bind="comment.com_time"></span>
+			<button class="btn btn-info btn-sm" ng-click="reply(comment.user_name)">回复</button>
+		</span>
+		<div class="commentconetnt">
+			<span ng-bind="comment.com_content"></span>
+		</div>
+	</div>
+	<div class="addcomment" id="addcomment">
+		<span>发表评论</span>
+		<textarea ng-model="commentword"></textarea>
+		<button type="botton" class="btn btn-info btn-sm" ng-click="publish()" ng-disabled="!commentword.length">发表</button>
+	</div>
+</div>
+</div>
+
+
+<%- include footer %>
+<script>	
+var userid = $.cookie("userid");
+    if(!userid){
+    	$('#addcomment').html('请先登录，再参与评论');
+    }
+function d () {
+
+	var endtime = $('#endtime').html();
+	var time = new Date();
+    var nowtime = time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate();
+
+
+	var nowarr = nowtime.split("-");
+    var nowtime = new Date(nowarr[0], nowarr[1], nowarr[2]);
+    var nowtime = nowtime.getTime();
+	
+	var endarr = endtime.split("-");
+    var endtime = new Date(endarr[0], endarr[1], endarr[2]);
+    var endtime = endtime.getTime();
+
+
+    //结束时间大于当前时间，表示活动未结束
+    if(endtime > nowtime){
+    	if(!userid){$('#join').html('登录后方可报名参加！').attr("disabled","disabled");}
+    }else{
+    	$('#join').text('活动已结束').attr("disabled","disabled");
+    }
+}
+setTimeout("d()","2000");
+</script>
+</body>
+</html>

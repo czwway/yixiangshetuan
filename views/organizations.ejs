@@ -1,0 +1,42 @@
+<%- include header %>
+
+<%- include nav %>
+	<div class="container" ng-controller="organizations" style="min-height: 550px;">
+		<div class="describe">
+			<img src="../image/pic.jpg" width="50" height="30"/><span>华软社团集</span>
+		</div>
+		<div class="search form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"></label>
+    		<div class="col-sm-8">
+      			<input type="text" class="form-control" id="inputEmail3" placeholder="按社团名称搜索"  ng-model="keyname">
+      		</div>
+		</div>
+		<div class="row">
+			<table class="table table-striped">
+				<thead>
+					<td>社团图标</td>
+					<td ng-click="title = 'org_name'; desc = !desc">社团名称</td>
+					<td ng-click="title = 'org_numper'; desc = !desc">现有成员人数</td>
+					<!-- <td ng-click="title = 'org_numatc'; desc = !desc">举办活动次数</td> -->
+					<td ng-click="title = 'org_time'; desc = !desc">成立时间</td>
+				</thead>
+				<tbody id="o_tbody">
+					<tr ng-repeat="organization in organizations | filter : {org_name:keyname} | orderBy: title : desc">
+						<td><img ng-src="{{organization.org_icon}}" ng-alt="{{organization.org_name}}"></td>
+						<td><a ng-href="/organization/{{organization.org_id}}">{{organization.org_name}}</a></td>
+						<td>{{organization.org_numper}}</td>
+						<!-- <td>{{organization.org_numatc}}</td> -->
+						<td>{{organization.org_time}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+<%- include footer %>
+<!-- 导航条当前选项选中 -->
+<script>
+$("#nav2").addClass("actived");
+</script>
+</body>
+</html>

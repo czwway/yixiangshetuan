@@ -1,0 +1,108 @@
+<%- include header %>
+<!-- //弹出框 -->
+<div role="alert" class="alert alert-dismissible alert-{{alert.type}} myalert" ng-repeat="alert in alerts" id="alert">
+  <button aria-label="Close" data-dismiss="alert" ng-click="alert.close()" class="close" type="button">
+    <span aria-hidden="true">×</span>
+  </button>
+  <span ng-bind="alert.msg"></span>
+</div>
+<div class="container-fluid managediv">
+	<div class="managehead">
+		<h3>意想社团</h3><small>管理系统</small>
+	</div>
+	<div class="row">
+		<div class="col-sm-2 leftdiv">
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="lihead">管理列表</li>
+				<li role="presentation" class="active"><a href="#common" aria-controls="common" role="tab" data-toggle="tab">普通用户</a></li>
+				<li role="presentation"><a href="#o_manage" aria-controls="o_manage" role="tab" data-toggle="tab">社团管理员</a></li>
+				<li role="presentation"><a href="#s_manage" aria-controls="s_manage" role="tab" data-toggle="tab">发布通知</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-10 rightdiv">
+			<div class="tab-content">
+				<!-- 普通用户 -->
+				<div role="tabpanel" class="tab-pane active" id="common" ng-controller="common">
+					<h2>普通用户管理</h2>
+					<table class="table table-striped table-hover">
+						<thead><td>用户id</td><td>用户名</td><td>用户真实姓名</td><td>用户性别</td><td>用户学号</td><td>用户年级</td><td>用户专业</td><td>用户手机</td><td>用户参与活动</td><td>管理</td></thead>
+						<tbody>
+							<tr ng-repeat="u in userlist">
+								<td>{{u.user_id}}</td>
+								<td><a ng-href="/userdetail/{{u.user_id}}">{{u.user_name}}</a></td>
+								<td>{{u.user_truename}}</td>
+								<td>{{u.user_sex}}</td>
+								<td>{{u.user_number}}</td>
+								<td>{{u.user_grade}}</td>
+								<td>{{u.user_major}}</td>
+								<td>{{u.user_phone}}</td>
+								<td><span ng-repeat="a in u.activity" style="margin:10px;">{{a.act_name}}</span></td>
+								<td><button class="btn btn-info btn-xs" ng-click="deleteUser(u.user_id)">删除</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<nav>
+						<ul class="pager">
+							<li class="previous" id="common_old"><a ng-click="oldpag()"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+							<li class="next" id="common_next"><a ng-click="nextpag()">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+						</ul>
+					</nav>
+				</div>
+				<!-- 社团管理员 -->
+			    <div role="tabpanel" class="tab-pane" id="o_manage" ng-controller="o_manage">
+					<h2>社团管理员管理</h2>
+					<table class="table table-striped table-hover">
+						<thead><td>用户id</td><td>用户名</td><td>用户真实姓名</td><td>用户性别</td><td>用户学号</td><td>用户年级</td><td>用户专业</td><td>用户手机</td><td>用户管理社团</td></thead>
+						<tbody>
+							<tr ng-repeat="u in userlist">
+								<td>{{u.user_id}}</td>
+								<td><a ng-href="/userdetail/{{u.user_id}}">{{u.user_name}}</a></td>
+								<td>{{u.user_truename}}</td>
+								<td>{{u.user_sex}}</td>
+								<td>{{u.user_number}}</td>
+								<td>{{u.user_grade}}</td>
+								<td>{{u.user_major}}</td>
+								<td>{{u.user_phone}}</td>
+								<td>{{u.org_name}}</td>
+								<td><span ng-repeat="a in u.organization" style="margin:10px;">{{a.org_name}}</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<nav>
+						<ul class="pager">
+							<li class="previous"  id="o_manage_old"><a ng-click="oldpag()"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+							<li class="next"  id="o_manage_next"><a ng-click="nextpag()">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+						</ul>
+					</nav>
+
+			    </div>
+			    <!-- 发布通知 -->
+			    <div role="tabpanel" class="tab-pane" id="s_manage" ng-controller="inform">
+					<h2>发布通知</h2>
+					<form>
+					  <div class="form-group">
+					    <label for="exampleInputEmail1">通知标题</label>
+					    <input type="text" class="form-control" id="informTitle" placeholder="通知标题" ng-model="informTitle">
+					  </div>
+					  <div class="form-group">
+					    <label for="exampleInputPassword1">通知内容</label>
+					    <textarea class="form-control" rows="5" ng-model="informContent"></textarea>
+					  </div>
+					  <button  class="btn btn-default" ng-click="postinform()">发布</button>
+					</form>
+
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include footer %>
+<script>
+	var ismanage = $.cookie("manage");
+	if(!ismanage){
+		window.location.href="/managelogin";
+	}
+</script>
+</body>
+</html>

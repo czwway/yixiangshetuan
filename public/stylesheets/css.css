@@ -1,0 +1,409 @@
+/**==================首页页面================首页页面====================== 首页页面==========*/
+html{
+	height: 100%;
+}
+body {
+	margin: 0 auto;
+	height: 100%;
+}
+.width80 {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+.navbar-brand {
+	margin-top: -10px;
+	line-height: 40px;
+	font-size: 20px;
+}
+.navbar-header {
+	padding-left: 50px;
+}
+.font-weight {
+	font-weight: bold;
+}
+.actived {
+	background-color: #ddd;
+}
+.navbar-nav li {
+	margin: 0 7px;
+	padding: 0 10px;
+}
+.navbar-nav li:hover {
+	background-color: #ddd;
+}
+.login {
+	border: #666 1px solid;
+	border-radius: 10px;
+}
+.navbar-nav {display: none;}
+.navbar-nav .islogin {display: none;}
+.navbar-nav .islogin a{padding: 5px 0 0 0}
+.navbar-nav .islogin img{width: 40px;height: 40px;border-radius: 50%;}
+
+
+/**=====绿色小导航=====*/
+#ulMenu {
+	background: url(../image/bg1.jpg);
+	width: 100%;
+	height: 100%;
+	border: 1px solid transparent;
+	margin-top: -20px;
+	list-style: none;
+	text-align: center;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	position: relative;
+}
+#yixiang {
+	width: 100%;
+	margin-top: 100px;
+	font-size: 42px;
+	font-family: 隶书;
+	font-weight: bold;
+	text-align: center;
+}
+#yixiang a {
+	text-decoration: none;
+}
+.ulMenu {
+	margin-top: 200px;
+}
+.ulMenu li {
+	padding: 0;
+	display: inline-block;
+	height: 50px;
+	width: 150px;
+	text-align: center;
+	line-height: 50px;
+	margin: 10px 20px;
+	list-style: none;
+	background: rgba(0,255,0,0.6);
+	border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+}
+.ulMenu li:hover {
+	background: rgba(0,255,0,0.8);
+}
+.ulMenu li a {
+	display: inline;
+	height: 100%;
+	padding: 0 10px;
+	font-size: 18px;
+	font-family: kaiti;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+.ulMenu li a i {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-top: 17px;
+	margin-bottom: .25em;
+	font-size: 18px;
+}
+.ulMenu li a span {
+	display: inline;
+}
+/**=====气泡=====*/
+#qipao {
+	width: 250px;
+	height: 60px;
+	margin: 50px auto 30px auto;
+	clear: both;
+}
+.rectangle {
+	width: 250px;
+	height: 50px;
+	background: #0C3;
+	text-align: center;
+	color: #FFF;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 50px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-moz-box-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.3);
+	-webkit-box-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.3);
+	box-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.3);
+}
+.triangle {
+	height: 10px;
+	width: 10px;
+	border-width: 10px;
+	border-style: solid;
+	border-color: #0C3 transparent transparent transparent;
+}
+/**===最新活动轮播模块===*/
+#lunbo {
+	margin: 30px auto 50px auto;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {margin: 0 auto;max-width: 800px;width: 80%;}
+/*=====日记模块====*/
+#diary {
+	width: 90%;
+	margin: 30px auto;
+	font-size: 13px;
+}
+#diary .diary-box {
+	width: 100%;
+	padding: 20px 20px 10px 20px;
+	height: auto;
+	margin: 10px;
+	border: 1px solid #ddd;
+	box-shadow: 3px 3px 3px #ddd;
+}
+
+#diary .diary-box:after{clear: both;}
+#diary .diary-box .diary-title {font-weight: bold;height: auto;}
+#diary .diary-box .diary-content {overflow: hidden;word-wrap: break-word  }
+#diary .diary-box .diary-info {padding: 10px 10px 0 10px;border-top: 1px solid #eee}
+#diary .diary-box .diary-about {display: block;}
+#diary .diary-box .diary-author {display: inline-block;}
+#diary .diary-box .diary-time {display: inline-block;}
+#diary .diary-box span {margin-right: 10px;}
+/**=====活跃社团模块===*/
+#activedas {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+#activedas img{width: 173px;height: 99px}
+#activedas h3 {
+	font-weight: bold;
+}
+#activedas .modal-body {
+	text-indent: 30px;
+	text-align: left;
+}
+#activedas .thumbnail {
+	padding-top: 10px;
+}
+.redlink{
+	color:#C33;
+	font-weight:bold;
+	text-decoration:underline;
+}
+.redlink:hover{
+	color:#F00;
+}
+#activedas span{margin: 0}
+
+
+
+
+
+
+
+
+/**============================  社团详情页面==========*/
+#path {
+	width: 80%;
+	margin: 0 auto;
+}
+.oinfo {
+	width: 80%;
+	margin: 0 auto;
+}
+ .describe {margin: 30px 0 20px 0;}
+ .describe span {display:inline-block;margin-left: 20px;font-size: 2rem}
+.oinfo .icon img {width: 100%;max-width: 500px;display: block;margin: 0 auto;}
+.oinfo .odescribe h2{text-align: center;}
+.oinfo .odescribe p{line-height: 200%;}
+.oinfo .odescribe .separate {display: inline-block;margin: 0 10px;}
+.oinfo .departmentbox {display: inline-block;width: 300px;border: 2px solid #bbb;border-radius: 10px;box-shadow: 0 0 10px #666;overflow: hidden;margin: 20px;vertical-align: top}
+.oinfo .departmentbox a{display: inline-block;margin: 10px;}
+.oinfo .departmentbox .departmenthead {border: none;height: 40px;text-align: center;line-height: 40px;font-weight: bold;background-color: #31708f;color: #fff}
+.oinfo .departmentbox .departmentbody {padding: 20px;}
+.oinfo .aclist {margin: auto}
+ .activitybox {margin:20px auto;padding: 10px;background-color: #eee;width: 90%}
+ .activitybox img{float: left;width: 180px;height: 140px;display: inline;padding: 10px;background-color: #fff;border: 1px solid #bbb;}
+ .activitybox .activityinfo {float: left;margin-left: 30px;margin-top: 10px;}
+
+
+/**=======================================================================评论区==========*/
+#comment {
+	min-width: 320px;
+	max-width: 60%;
+	margin: 30px auto;
+	border: 2px solid #ddd;
+	box-shadow: 3px 3px 3px #bbb;
+	border-radius: 30px;
+	display: none;
+}
+#comment h3{
+	width: 80%;
+	margin: 20px auto 10px auto;
+	padding-bottom: 10px;
+	text-align: center;
+	border-bottom: 1px solid #bbb;
+}
+
+#comment .comment-box {
+	width: 80%;
+	margin: 10px auto;
+	padding: 10px;
+}
+#comment .comment-box img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+#comment .comment-box .commentconetnt {
+	margin: 10px 0 0 0;
+	padding-left: 20px;
+}
+#comment .addcomment {
+	margin: 0 auto 20px auto;
+	width: 80%;
+}
+#comment .addcomment textarea {
+	width: 100%;
+	margin: 10px 0;
+	display: block;
+	height: 150px;
+}
+#comment .no {
+	text-align: center;
+	margin: 50px 0;
+
+}
+
+/**============活动详情页面=============== 活动详情页面============活动详情页面======*/
+.activeinfo {margin: 20px 0;}
+.activeinfo>img {max-width: 80%;width: 80%;margin: 0 auto;display: block;}
+.activeinfo .ainfo>h2 {text-align: center;margin: 20px 0;}
+.activeinfo .ainfo>span {font-weight: bold;text-align: center;display: inline-block;width: 46%}
+.activeinfo .synopsis {margin: 30px 0;word-break: break-word;}
+/**================ 日记====================*/
+#diarydetail{
+	margin:50px auto;
+	display: none;
+	}
+#diarydetail h4{
+	text-align:center;
+	}
+#diarydetail  .user-time{
+	width:80%;
+	margin:10px auto;
+	}
+#diarydetail .content{
+	width:80%;
+	font-size:15px;
+	margin:10px auto;
+	text-indent:30px;
+	}
+/*----------------------------登录注册----------------*/
+.loginbg {border:1px solid transparent;background-image: url(/image/sign.jpg);margin-top: -20px;background-repeat:no-repeat;}
+.loginbg h2 {color: #fff;text-align: center;margin-top: 150px;}
+.loginbg .loginbox {width: 360px;border: 1px solid #fff;margin:50px auto 100px auto;overflow: hidden; background-color: #fff;}
+.loginbg .loginbox li{width: 50%;height: 40px;line-height: 40px;text-align: center;font-weight: bold;}
+.loginbg .loginbox .tab-pane {margin: 10px 0;padding: 10px;}
+#tologin .form-horizontal{margin-top: 0px;}
+
+#logout { display: none;
+    height: 62px;
+    line-height: 92px;
+    width: 74px;
+    text-align: center;
+    position: absolute;
+    top: 44px;
+    left: -5px;
+    cursor: pointer;
+    z-index: 9999;background-color: #e7e7e7;}
+   #islogin:hover #logout{display: block}
+/**==========注脚==========*/
+#footer {
+	width: 100%;
+	overflow: auto;
+	background-color: #eee;
+	font-size: 13px;
+	text-align: center;
+	line-height: 26px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**==========personCenter.html 个人中心==========*/
+.userdetail .row>div{padding: 20px 20px;}
+.userdetail .userimg{max-width: 200px;width: 100%;border-radius: 50%;}
+#userinfo {display: none;}
+/**==========manageCenter.html 管理中心页面==========*/
+.manager{margin-bottom:  30px;}
+#userlist,#manage {display: none;}
+
+
+
+/************管理****************/
+.managediv {padding: 0;margin: 0;background-color: #eee;}
+.managediv .managehead {background-color: #0073ff;height: 50px;line-height: 50px;border:1px solid #0073ff;padding: 0;color: #fff;}
+.managediv .managehead h3 {display: inline-block;margin: 0 10px 0 30px;padding: 0;height: 50px;line-height: 50px}
+.managediv .leftdiv ul{margin: 5px 20px 20px 10px;padding: 0;background-color: #fff;border-radius: 5px;}
+.managediv .leftdiv li{margin: 0;padding: 0;display: block;width: 100%;text-align: center;height: 50px;line-height: 50px;}
+.managediv .leftdiv li.lihead{background-color: #0073ff;color: #fff;}
+.managediv .rightdiv {padding-right: 50px;}
+
+
+
+#tabs li{width: 15%;}
+#tabs .mybtn{display: block;margin: 20px auto}
+
+/****通知*****/
+#informCtrl {margin: 50px 0;display: none;}
+#informCtrl p{text-align: center;margin: 20px 0;}
+#informCtrl h2 {text-align: center;}
+
+/**===========================社团集页面==**/
+.title{text-align: center;}
+.table img{width: 100px;height: 50px;}
+/**========== 社团页面==========*/
+#bg {
+	width: 100%;
+	height: 200px;
+	text-align: center;
+	margin-top: -20px;
+	margin-bottom: 30px;
+	background: url(../image/activity.jpg);
+}
+#bg .detail {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 12px;
+}
+
+#o_tbody,#abox {display: none;}
+#managecenter {display: none;}
+#o_department {display: none;}
+#o_activity {display: none;}
+/*bootstrap自定义修改样式*/
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{text-align: center;vertical-align: middle;}
+
+
+/*提示框*/
+.myalert {
+	position: fixed;
+	width: 80%;
+	height: 50px;
+	box-shadow: 0 0 10px #222;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 99999;
+display: none;}

@@ -1,0 +1,39 @@
+<%- include header %>
+
+<%- include nav %>
+	<div class="container" ng-controller="activitys"  style="min-height: 550px;">
+		<div class="describe">
+			<img src="../image/pic.jpg" width="50" height="30"/><span>华软活动集</span>
+		</div>
+		<div class="search form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"></label>
+    		<div class="col-sm-8">
+      			<input type="text" class="form-control" id="inputEmail3" placeholder="按活动名称搜索"  ng-model="keyname">
+      		</div>
+		</div>
+		<div class="row" id="abox">
+			<div class="col-sm-6" ng-repeat="activity in activitys | filter : {act_name:keyname}"  on-finish-render-filters>
+				<div class="activitybox">
+						<img ng-src="{{activity.act_poster}}" alt="{{activity.act_name}}">
+						<div class="activityinfo">
+							<p><strong><a ng-href="/activity/{{activity.act_id}}">{{activity.act_name}}</a></strong></p>
+							<p>主办方 ：{{activity.act_sponsor}}</p>
+							<p>开始时间：{{activity.act_starttime}}</p>
+							<p>结束时间：<span class="endtime">{{activity.act_endtime}}</span></p>
+							<button class="btn btn-sm sign">结束</button>
+						</div>
+						<p style="clear:both"></p>
+					</div>
+			</div>
+		</div>
+	</div>
+
+<%- include footer %>
+
+<!-- 导航条当前选项选中 -->
+<script>
+
+$("#nav3").addClass("actived");
+</script>
+</body>
+</html>

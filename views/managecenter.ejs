@@ -1,0 +1,117 @@
+<%- include header %>
+
+<%- include nav %>
+<div class="container manager" ng-controller="manager">
+	<h1>hello,社团管理员</h1>
+	<div id="manage">
+		
+		<div class="row">
+			<div class="col-sm-6 organization">
+				<h2>管理的社团</h2>
+				<div class="row">
+					<div class="col-sm-6">
+						<img ng-src="{{organization.orgidinfo[0].org_icon}}" alt="{{organization.orgidinfo[0].org_name}}" class="img-responsive img-rounded">
+					</div>
+					<div class="col-sm-6">
+						<h2>{{organization.orgidinfo[0].org_name}}</h2>
+						<p>社团id:{{organization.orgidinfo[0].org_id}}</p>
+						<p>社团人数：{{organization.orgidinfo[0].org_numper}}</p>
+						<p>所属系别：{{organization.orgidinfo[0].org_major}}</p>
+						<p>成立时间：{{organization.orgidinfo[0].org_time}}</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-6">
+				<h2>社团属下活动<span class="badge">{{organization.orgact.length}}</span></h2>
+				<table class="table table-hover">
+					<thead><td>活动ID</td><td>活动名称</td></thead>
+					<tbody>
+						<tr ng-repeat="a in organization.orgact">
+							<td><a ng-href="/activity/{{a.act_id}}">{{a.act_id}}</a></td>
+							<td><span ng-click='selectuser(a.act_id)'>{{a.act_name}}</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12">	
+				<h2>社团报名人员<span class="badge"></span></h2>
+				<!-- Nav tabs -->
+				  <ul class="nav nav-tabs" role="tablist">
+				    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">社团成员</a></li>
+				    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">审核名单</a></li>
+				  </ul>
+
+				  <!-- Tab panes -->
+				  <div class="tab-content">
+				    <div role="tabpanel" class="tab-pane active" id="home">
+				    	<table class="table table-hover">
+						<thead><td>用户名</td><td>真实姓名</td><td>性别</td><td>学号</td><td>系别</td><td>手机号码</td></thead>
+						<tbody>
+							<tr ng-repeat="u in organization.orguser">
+								<td><a ng-href="/userdetail/{{u.user_id}}">{{u.user_name}}</a></td>
+								<td>{{u.user_truename}}</td>
+								<td>{{u.user_sex}}</td>
+								<td>{{u.user_number}}</td>
+								<td>{{u.user_major}}</td>
+								<td>{{u.user_phone}}</td>
+							</tr>
+						</tbody>
+						</table>
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="profile">
+						<table class="table table-hover">
+						<thead><td>用户名</td><td>真实姓名</td><td>性别</td><td>学号</td><td>系别</td><td>手机号码</td><td>审核</td></thead>
+						<tbody>
+							<tr ng-repeat="a in organization.orgaudit">
+								<td><a ng-href="/userdetail/{{a.user_id}}">{{a.user_name}}</a></td>
+								<td>{{a.user_truename}}</td>
+								<td>{{a.user_sex}}</td>
+								<td>{{a.user_number}}</td>
+								<td>{{a.user_major}}</td>
+								<td>{{a.user_phone}}</td>
+								<td>
+									<button class="btn btn-primary btn-sm" ng-click="pass(a.user_id,organization.orgidinfo[0].org_id,organization.orgidinfo[0].org_name)">通过</button>
+									<button class="btn btn-danger btn-sm"  ng-click="nopass(a.user_id,organization.orgidinfo[0].org_id,organization.orgidinfo[0].org_name)">不通过</button>
+								</td>
+							</tr>
+						</tbody>
+						</table>
+				    </div>
+				  </div>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="userlist">
+		<h2>报名人员<span class="badge" style="margin:10px;">{{userlist.length}}</span>
+		<button type="button" class="close" onclick="$('#userlist').css('display','none')">&times;</button></h2>
+			<table class="table table-hover table-striped">
+				<thead><td>用户名</td><td>真实姓名</td><td>性别</td><td>学号</td><td>年级</td><td>专业</td><td>联系方式</td></thead>
+				<tbody>
+					<tr ng-repeat="u in userlist">
+						<td><a ng-href="/userdetail/{{u.user_id}}">{{u.user_name}}</a></td>
+						<td>{{u.user_truename}}</td>
+						<td>{{u.user_sex}}</td>
+						<td>{{u.user_number}}</td>
+						<td>{{u.user_grade}}</td>
+						<td>{{u.user_major}}</td>
+						<td>{{u.user_phone}}</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+
+
+
+
+
+
+
+</div>
+
+<%- include footer %>
+<script>
+	$('#userid').html($.cookie('userid'));
+</script>
+</body>
+</html>

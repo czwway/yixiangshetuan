@@ -1,0 +1,35 @@
+<!--顶部导航栏-->
+<div id="header" ng-controller="nav">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="/"><img src="/image/logo.png" width="40"/></a> <a class="navbar-brand font-weight" href="/">意想社团</a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav  navbar-right" id="rightnav">
+          <li id="nav1"><a href="/">首页<span class="sr-only">(current)</span></a></li>
+          <li id="nav2"><a href="/organizations">社团集</a></li>
+          <li id="nav3"><a href="/activitys">活动集</a></li>
+          <li id="nav4"><a href="/diarys">日记集</a></li>
+          <li id="managecenter"><a href="/managecenter">管理中心</a></li>
+          <li id="nav5"><a href="/contact">联系我们</a></li>
+          <li class="login" id="login"><a href="/login" >登录/注册</a></li>
+          <li class="islogin" id="islogin">
+            <a href="/mydetail/" ><img ng-src="{{UserImg}}"></a>
+            <span id="logout"><span id="logoutbtn">注销登录</span></span>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse --> 
+    </div>
+    <!-- /.container-fluid --> 
+  </nav>
+
+</div>
+<!-- //弹出框 -->
+<div role="alert" class="alert alert-dismissible alert-{{alert.type}} myalert" ng-repeat="alert in alerts" id="alert">
+  <button aria-label="Close" data-dismiss="alert" ng-click="alert.close()" class="close" type="button">
+    <span aria-hidden="true">×</span>
+  </button>
+  <span ng-bind="alert.msg"></span>
+</div>

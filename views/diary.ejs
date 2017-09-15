@@ -1,0 +1,56 @@
+<%- include header %>
+
+<%- include nav %>
+<div ng-controller="diaryDetailsComment">
+<div id="path" >
+	<ul class="breadcrumb">
+		<li>当前位置：</li>
+		<li> <a href="/diarys">日记</a> </li>
+		<li class="active">{{info[0].dia_title}}</li>
+	</ul>
+</div>
+<div id="diarydetail">
+	<h4>{{info[0].dia_title}}</h4><hr>
+	<div class="user-time">
+		<span class="user">
+			<a ng-href="/userdetail/{{info[0].par_user_id}}"><img ng-src="{{info[0].user_img}}" class="img-circle" width="40" height="40"/></a>
+		</span>
+		<span class="user">
+			<span style="margin:15px;"><a href="/userdetail/{{info[0].par_user_id}}">{{info[0].dia_author}}</a></span> <span class="time">{{info[0].dia_time}}</span>
+		</span>
+	</div>
+	<div class="content">{{info[0].dia_content}}</div>
+</div>
+<!-- 评论区 -->
+<div id="comment" class="conteiner">
+	<h3>评论区</h3>
+	<div class="no" ng-show="isShow">暂无评论！抢板凳？</div>
+	<div class="comment-box" ng-repeat="comment in Comments">
+		<span class="commentimg"><img ng-src="{{comment.user_img}}" /></span>
+		<span class="commentinfo">
+			<span class="commentauthor"><a ng-href="/userdetail/{{comment.user_id}}"><span ng-bind="comment.user_name"></span></a></span>
+			<span class="commentime"><span ng-bind="comment.com_time"></span>
+			<button class="btn btn-info btn-sm" ng-click="reply(comment.user_name)">回复</button>
+		</span>
+		<div class="commentconetnt">
+			<span ng-bind="comment.com_content"></span>
+		</div>
+	</div>
+	<div class="addcomment" id="addcomment">
+		<span>发表评论</span>
+		<textarea ng-model="commentword"></textarea>
+		<button type="botton" class="btn btn-info btn-sm" ng-click="publish()" ng-disabled="!commentword.length">发表</button>
+	</div>
+</div>
+</div>
+
+
+<%- include footer %>
+<script>
+	var userid = $.cookie("userid");
+	if(!userid){
+    	$('#addcomment').html('请先登录，再参与评论');
+    }
+</script>
+</body>
+</html>

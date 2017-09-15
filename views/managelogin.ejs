@@ -1,0 +1,18 @@
+<%- include header %>
+
+<%- include nav %>
+	<div ng-controller="managelogin" class="container" style="margin:200px auto 300px auto;">
+		<form  style="width:300px;margin:0 auto">
+		  <div class="form-group" >
+		    <input type="text" class="form-control" id="exampleInputName2" placeholder="Username" ng-model="username">
+		  </div>
+		  <div class="form-group">
+		    <input type="password" class="form-control" id="exampleInputEmail2" placeholder="Password"  ng-model="password">
+		  </div>
+		  <button class="btn btn-default" ng-click="login()">登录后台</button>
+		</form>
+	</div>
+<%- include footer %>
+
+</body>
+</html>

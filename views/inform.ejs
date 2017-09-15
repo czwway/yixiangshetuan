@@ -1,0 +1,22 @@
+<%- include header %>
+
+<%- include nav %>
+	<div ng-controller="informCtrl" class="container" >
+		<div id="informCtrl">
+			<h3>通知</h3>
+			<div class="con">
+				<h2>{{inform[0].inf_title}}</h2>
+				<p>由{{inform[0].inf_from}}于{{inform[0].inf_time}}发出</p>
+				<div class="content">
+					{{inform[0].inf_content}}
+				</div>
+			</div>
+			<p>意想社团系统发于用户的系统通知，解释权在意想社团。</p>
+		</div>
+	</div>
+
+
+<%- include footer %>
+
+</body>
+</html>
