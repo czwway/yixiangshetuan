@@ -1,6 +1,6 @@
 
 /**
- * Module dependencies.
+ * 
  */
 
 var express = require('express');
@@ -12,7 +12,6 @@ var session = require('express-session');
 var api = require('./routes/api1.js');
 var app = express();
 app.use("/api",api);
-//设置session
 app.use(cookieParser());
 app.use(session({
 	secret: '12345',
